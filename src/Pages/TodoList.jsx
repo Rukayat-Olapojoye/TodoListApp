@@ -21,9 +21,8 @@ const TodoList =()=>{
  fetch(`https://user-manager-three.vercel.app/api/todo?userId=${context.state.userId}`) 
     .then(res => res.json())
     .then(result => {
-       // console.log(result)
-         if(result.error===false){
-         
+     if(result.error===false){
+          //console.log(result)
      //Sending my dispatch rider....
           context.dispatch({
             type:'SET_TASK',

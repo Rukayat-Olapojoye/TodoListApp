@@ -35,12 +35,13 @@ const Register=()=> {
             .then(res => res.json())
             .then(result => {
                 if (result.error===false){
+                    console.log(result);
                     alert(result.message + ', SignIN to continue.');
                     dispatch({
                         type: 'REGISTER',
                         payload: {
-                            userId: newUser.userId,
-                            userEmail: newUser.email,
+                            userId: result.body.id,
+                            userEmail:result.body.email,
                         },
                     });
                     userHistory.push('/login');
@@ -55,7 +56,6 @@ const Register=()=> {
 
 // Register form template
     return (
-
       <div className="limiter">
           <div className="wrap-login100">
                 <form className="login100-form validate-form p-l-55 p-r-55 p-t-178"
